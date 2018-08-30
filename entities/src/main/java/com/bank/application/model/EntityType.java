@@ -7,5 +7,5 @@ package com.bank.application.model;
  */
 public enum EntityType {
 
-    NEWS, USER , NEWSLINE,  BROADCAST
+    NEWS, USER, NEWSLINE, BROADCAST
 }
