@@ -22,9 +22,6 @@ public class Phone extends BaseEntityId {
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
-
     private String telefonNumder1;
-    private String telefonNumder2;
-    private String telefonNumder3;
 
 }

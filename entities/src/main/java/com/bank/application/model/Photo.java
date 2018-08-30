@@ -21,5 +21,4 @@ public class Photo extends BaseEntityId {
     private String smallPhotoUrl;
     private String bigPhotoUrl;
 
-
 }

@@ -1,11 +1,9 @@
 package com.bank.application.model;
 
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
-
+import org.hibernate.annotations.Type;
 import javax.persistence.*;
-import java.sql.Timestamp;
+import java.time.OffsetDateTime;
 
 /**
  * @author Hincu Andrei (andreih1981@gmail.com)on 28.08.2018.
@@ -22,12 +20,14 @@ public class BaseEntityId {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long id;
 
-    @Enumerated(EnumType.ORDINAL)
+    @Enumerated(EnumType.STRING)
     private EntityType entityType;
 
-    private Timestamp created;
+    @Type(type = "org.hibernate.type.OffsetDateTimeType")
+    private OffsetDateTime created;
 
-    private Timestamp update;
+    @Type(type = "org.hibernate.type.OffsetDateTimeType")
+    private OffsetDateTime update;
 
     private User author;
 
