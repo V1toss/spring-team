@@ -92,7 +92,7 @@ public class User extends BaseEntityId {
 
 
     public enum Access {
-        ADMINISTRATOR, CONTENT_MANAGER
+        ADMINISTRATOR, CONTENT_MANAGER, USER
     }
 }
 
