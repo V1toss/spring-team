@@ -2,12 +2,12 @@ package com.bank.application.listeners;
 
 
 import com.bank.application.model.BaseEntityId;
-import org.hibernate.type.OffsetDateTimeType;
 import org.springframework.util.ReflectionUtils;
 
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import java.lang.reflect.Field;
+import java.time.OffsetDateTime;
 
 /**
  * @author Hincu Andrei (andreih1981@gmail.com)on 01.09.2018.
@@ -23,7 +23,7 @@ public class EntityListener {
         for (Field field : fields) {
             if (field.isAnnotationPresent(CreatedDate.class)) {
                 field.setAccessible(true);
-                ReflectionUtils.setField(field, entity, OffsetDateTimeType.INSTANCE);
+                ReflectionUtils.setField(field, entity, OffsetDateTime.now());
                 break;
             }
         }
@@ -36,7 +36,7 @@ public class EntityListener {
         for (Field field : fields) {
             if (field.isAnnotationPresent(UpdateDate.class)) {
                 field.setAccessible(true);
-                ReflectionUtils.setField(field, entity, OffsetDateTimeType.INSTANCE);
+                ReflectionUtils.setField(field, entity, OffsetDateTime.now());
                 break;
             }
         }
