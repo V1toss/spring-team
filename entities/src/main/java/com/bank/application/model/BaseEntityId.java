@@ -1,5 +1,8 @@
 package com.bank.application.model;
 
+import com.bank.application.listeners.CreatedDate;
+import com.bank.application.listeners.EntityListener;
+import com.bank.application.listeners.UpdateDate;
 import lombok.Data;
 import org.hibernate.annotations.Type;
 import javax.persistence.*;
@@ -14,6 +17,7 @@ import java.time.OffsetDateTime;
 @Entity
 @Table(name = "base_entity")
 @Inheritance(strategy = InheritanceType.JOINED)
+@EntityListeners(EntityListener.class)
 public class BaseEntityId {
 
     @Id
@@ -23,9 +27,11 @@ public class BaseEntityId {
     @Enumerated(EnumType.STRING)
     private EntityType entityType;
 
+    @CreatedDate
     @Type(type = "org.hibernate.type.OffsetDateTimeType")
     private OffsetDateTime created;
 
+    @UpdateDate
     @Type(type = "org.hibernate.type.OffsetDateTimeType")
     private OffsetDateTime update;
 
